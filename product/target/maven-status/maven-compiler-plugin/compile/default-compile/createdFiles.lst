@@ -1,0 +1,7 @@
+com/ecommerce/microcommerce/web/exceptions/ProduitGratuitException.class
+com/ecommerce/microcommerce/web/controller/ProductController.class
+com/ecommerce/microcommerce/model/Product.class
+com/ecommerce/microcommerce/configuration/SwaggerConfig.class
+com/ecommerce/microcommerce/dao/ProductDao.class
+com/ecommerce/microcommerce/web/exceptions/ProduitIntrouvableException.class
+com/ecommerce/microcommerce/MicrocommerceApplication.class

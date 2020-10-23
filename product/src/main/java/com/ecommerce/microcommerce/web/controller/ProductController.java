@@ -64,8 +64,6 @@ public class ProductController {
     }
 
 
-
-
     //ajouter un produit
     @PostMapping(value = "/Produits")
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {

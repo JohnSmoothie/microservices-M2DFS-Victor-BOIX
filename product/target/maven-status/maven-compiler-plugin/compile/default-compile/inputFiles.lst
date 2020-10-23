@@ -1,0 +1,7 @@
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/MicrocommerceApplication.java
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/web/exceptions/ProduitIntrouvableException.java
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/dao/ProductDao.java
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/model/Product.java
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/web/exceptions/ProduitGratuitException.java
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/configuration/SwaggerConfig.java
+/home/victor/~/Bureau/microservices-M2DFS-Victor-BOIX/product/src/main/java/com/ecommerce/microcommerce/web/controller/ProductController.java
