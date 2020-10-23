@@ -1,5 +1,7 @@
 package com.ecommerce.microcommerce.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
@@ -11,16 +13,21 @@ import javax.validation.constraints.Min;
 //@JsonFilter("monFiltreDynamique")
 public class Product {
 
+    @ApiModelProperty(notes = "L'Id du Produit", name = "id", value = "1", required = true)
     @Id
     @GeneratedValue
     private int id;
 
+    @ApiModelProperty(notes = "Nom du Produit", name = "nom", value = "test nom", required = true)
     @Length(min=3, max=20, message = "Nom trop long ou trop court. Et oui messages sont plus stylés que ceux de Spring")
     private String nom;
 
+
+    @ApiModelProperty(notes = "Prix de vente du Produit", name = "prix", value = "1", required = true)
     @Min(value = 1)
     private int prix;
 
+    @ApiModelProperty(notes = "Prix d'achat du Produit", name = "prixAchat", value = "0", required = true, hidden = true)
     //information que nous ne souhaitons pas exposer
     private int prixAchat;
 

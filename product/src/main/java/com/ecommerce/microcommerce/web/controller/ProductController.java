@@ -6,6 +6,8 @@ import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -16,7 +18,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
-
+@Api(value = "ProductController", description = "Api pour recuperer les produits d'une base de donnée, ajouter, modifier et suprimer")
 @RestController
 public class ProductController {
 
@@ -25,6 +27,7 @@ public class ProductController {
 
 
     //Récupérer la liste des produits
+    @ApiOperation(value = "Retourne la liste de tous les produits")
     @RequestMapping(value = "/Produits", method = RequestMethod.GET)
     public MappingJacksonValue listeProduits() {
         Iterable<Product> produits = productDao.findAll();
@@ -35,6 +38,7 @@ public class ProductController {
         return produitsFiltres;
     }
 
+    @ApiOperation(value = "Retourne la liste de tous les produits avec affichage de la marge")
     @GetMapping("/AdminProduits")
     public String afficherVueAdmin() {
         Iterable<Product> produits = productDao.findAll();
@@ -50,6 +54,7 @@ public class ProductController {
         return res.toString();
     }
 
+    @ApiOperation(value = "Retourne la liste de tous les produits triés sur les noms dans l'ordre alphabétique")
     @GetMapping("/ProduitsTrie")
     public List<Product> trierProduitsParOrdreAlphabetique() {
         return productDao.findAllByOrderByNomAsc();
@@ -57,6 +62,7 @@ public class ProductController {
 
 
     //Récupérer un produit par son Id
+    @ApiOperation(value = "retourne un produit grace à son Id")
     @GetMapping("getProduitId/{id}")
     public Product afficherUnProduit(@PathVariable(value = "id") int id) {
 
@@ -65,6 +71,7 @@ public class ProductController {
 
 
     //ajouter un produit
+    @ApiOperation(value = "Ajoute un produit passé en Post dans la base")
     @PostMapping(value = "/Produits")
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
 
@@ -86,12 +93,14 @@ public class ProductController {
         }
     }
 
-    @RequestMapping(value = "/suprimerProduit/{id}", method = RequestMethod.DELETE)
+    @ApiOperation(value = "Suprime un produit de la base grace à son id")
+    @RequestMapping(value = "/suprimerProduit/{id}", method = RequestMethod.GET)
     public void supprimerProduit(@PathVariable(value = "id") int id) {
         productDao.delete(id);
     }
 
 
+    @ApiOperation(value = "Met à jour un produit en base")
     @RequestMapping(value = "/updateProduit", method = RequestMethod.PUT)
     public void updateProduit(@RequestBody Product product) {
         if (product.getPrix() == 0) {
