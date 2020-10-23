@@ -1,6 +1,5 @@
 package com.hystrix.circuitbreaker.controller;
 
-import com.ecommerce.microcommerce.model.Product;
 import com.hystrix.circuitbreaker.delegate.ProductServiceDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -27,9 +26,9 @@ public class ProductServiceController {
     public String getAllProductsAdmin() {
         return productServiceDelegate.callProductServiceAndGetAllAdmin();
     }
-
+    /*
     @GetMapping("/ProduitsTrie")
     public List<Product> getAllProductsSorted() {
         return productServiceDelegate.callProductServiceAndGetAllSorted();
-    }
+    } */
 }

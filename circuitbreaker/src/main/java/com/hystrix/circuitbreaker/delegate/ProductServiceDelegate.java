@@ -1,6 +1,5 @@
 package com.hystrix.circuitbreaker.delegate;
 
-import com.ecommerce.microcommerce.model.Product;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +44,7 @@ public class ProductServiceDelegate {
         return "Micro service Produit non accesible";
     }
 
+    /*
     @HystrixCommand(fallbackMethod = "callProductServiceAndGetAll_Fallback")
     public List<Product> callProductServiceAndGetAllSorted() {
         ResponseEntity<ListProduct> produits = restTemplate.exchange("http://localhost:9090/ProduitsTrie", HttpMethod.GET, null, ListProduct.class);
@@ -52,6 +52,6 @@ public class ProductServiceDelegate {
     }
 
     public abstract static class ListProduct implements List<Product> {}
-
+    */
 }
 
